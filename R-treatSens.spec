@@ -4,7 +4,7 @@
 #
 Name     : R-treatSens
 Version  : 2.1.3
-Release  : 10
+Release  : 11
 URL      : https://cran.r-project.org/src/contrib/treatSens_2.1.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/treatSens_2.1.3.tar.gz
 Summary  : Sensitivity Analysis for Causal Inference
