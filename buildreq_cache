@@ -1,0 +1,10 @@
+2.1.3
+R-BH
+R-Rcpp
+R-RcppEigen
+R-assertthat
+R-cli
+R-dbarts
+R-lme4
+R-mvtnorm
+R-withr

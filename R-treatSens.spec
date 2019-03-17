@@ -4,26 +4,32 @@
 #
 Name     : R-treatSens
 Version  : 2.1.3
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/treatSens_2.1.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/treatSens_2.1.3.tar.gz
 Summary  : Sensitivity Analysis for Causal Inference
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-treatSens-lib
+Requires: R-treatSens-lib = %{version}-%{release}
 Requires: R-BH
 Requires: R-Rcpp
 Requires: R-RcppEigen
+Requires: R-assertthat
+Requires: R-cli
 Requires: R-dbarts
 Requires: R-lme4
 Requires: R-mvtnorm
+Requires: R-withr
 BuildRequires : R-BH
 BuildRequires : R-Rcpp
 BuildRequires : R-RcppEigen
+BuildRequires : R-assertthat
+BuildRequires : R-cli
 BuildRequires : R-dbarts
 BuildRequires : R-lme4
 BuildRequires : R-mvtnorm
-BuildRequires : clr-R-helpers
+BuildRequires : R-withr
+BuildRequires : buildreq-R
 
 %description
 parametric models with either binary or continuous treatment.
@@ -44,11 +50,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521208137
+export SOURCE_DATE_EPOCH=1552842920
 
 %install
+export SOURCE_DATE_EPOCH=1552842920
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521208137
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -83,8 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library treatSens|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  treatSens || :
 
 
 %files
@@ -109,7 +114,11 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/treatSens/help/treatSens.rdx
 /usr/lib64/R/library/treatSens/html/00Index.html
 /usr/lib64/R/library/treatSens/html/R.css
-/usr/lib64/R/library/treatSens/libs/symbols.rds
+/usr/lib64/R/library/treatSens/tests/testthat.R
+/usr/lib64/R/library/treatSens/tests/testthat/test-01-glmFit.R
+/usr/lib64/R/library/treatSens/tests/testthat/test-02-cibartTreatmentModel.R
+/usr/lib64/R/library/treatSens/tests/testthat/test-03-continuous.R
+/usr/lib64/R/library/treatSens/tests/testthat/test-04-binary.R
 
 %files lib
 %defattr(-,root,root,-)
