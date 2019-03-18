@@ -4,22 +4,13 @@
 #
 Name     : R-treatSens
 Version  : 2.1.3
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/treatSens_2.1.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/treatSens_2.1.3.tar.gz
 Summary  : Sensitivity Analysis for Causal Inference
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-treatSens-lib = %{version}-%{release}
-Requires: R-BH
-Requires: R-Rcpp
-Requires: R-RcppEigen
-Requires: R-assertthat
-Requires: R-cli
-Requires: R-dbarts
-Requires: R-lme4
-Requires: R-mvtnorm
-Requires: R-withr
 BuildRequires : R-BH
 BuildRequires : R-Rcpp
 BuildRequires : R-RcppEigen
@@ -50,10 +41,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552842920
+export SOURCE_DATE_EPOCH=1552883637
 
 %install
-export SOURCE_DATE_EPOCH=1552842920
+export SOURCE_DATE_EPOCH=1552883637
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
